@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from financial.aggregate import aggregation
 from financial.model import StockPrice, StockPriceModel
 from typing import List, Tuple
+# getting data from Database.
 
 
 class Database():
@@ -39,9 +40,10 @@ class Database():
                 .filter(StockPrice.date <= end_date)
             total_count = t.scalar()
             total_page = (total_count - 1) // limit_number
-            if page_number >= total_page or page_number < 0:
+            if page_number > total_page or page_number < 0:
                 return ([], total_page, total_count)
             offset = limit_number * page_number
+            print(limit_number, page_number, offset)
             tmp = session.query(StockPrice)\
             .filter(StockPrice.symbol == symbol)\
             .filter(StockPrice.date >= start_date)\

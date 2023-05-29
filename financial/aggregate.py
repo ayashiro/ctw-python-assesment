@@ -3,6 +3,7 @@ from typing import List,  Dict, Any
 
 from financial.model import StockPriceModel
 
+# Aggrigation result instance from the List of StockPriceModel
 
 @dataclass
 class AggregatedResult:

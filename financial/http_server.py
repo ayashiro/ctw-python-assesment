@@ -1,13 +1,12 @@
 from financial.aggregate import AggregatedResult, aggregation
 from financial.database import Database
 
-from typing import  Optional
+from typing import Optional
 
 from financial.exceptions import PagenationException
 from financial.pagenation_result import PagenationResult, Pagenation, PagenationInfo
-from http.server import BaseHTTPRequestHandler, HTTPServer
 
-
+# Access database and provide dataclass object for handling http request
 
 class DatabaseProxy(object):
     def __init__(self, engine):
@@ -32,9 +31,9 @@ class DatabaseProxy(object):
                 data=listofResult,
                 pagenation=Pagenation(
                     count=count,
-                    page=page_number,
+                    page=page_number + 1,
                     limit=limit_number,
-                    pages=pages,
+                    pages=pages + 1,
                 )
             )
         except PagenationException as e:
@@ -54,12 +53,3 @@ class DatabaseProxy(object):
             return ans[0]
         else:
             return None
-
-
-def run_server():
-    server_address = ('127.0.0.1', 8085)
-    httpd = HTTPServer(server_address, HttpListHandler)
-    httpd.serve_forever()
-
-if __name__ == '__main__':
-    run_server()

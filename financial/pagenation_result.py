@@ -3,6 +3,7 @@ from typing import List, Optional
 
 from financial.model import StockPriceModel
 
+#dataclass object for providing pagenation result.
 
 @dataclass
 class Pagenation:

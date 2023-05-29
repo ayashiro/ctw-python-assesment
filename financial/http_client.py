@@ -4,6 +4,7 @@ from typing import Dict, Any, List
 
 from financial.model import StockPrice
 
+# HTTP client to getting Stock Price.
 
 class StockHttpClient(object):
     API_HOST = "https://www.alphavantage.co/query?"

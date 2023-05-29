@@ -1,12 +1,6 @@
+#Exceptions for processing HTTP request.
+
 class StockPriceProcessingException(Exception):
-    pass
-
-
-class InvalidHttpResponseException(StockPriceProcessingException):
-    pass
-
-
-class AggregationException(StockPriceProcessingException):
     pass
 
 

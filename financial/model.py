@@ -3,6 +3,8 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from dataclasses import dataclass
 
+# stock price model for saving stock price data on SQL
+
 @dataclass
 class StockPriceModel:
     symbol:str

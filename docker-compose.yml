@@ -1,0 +1,10 @@
+version: "2.8"
+services:
+  financialservice:
+    build: .
+  nginx_sever:
+    image: nginx:1.23.3-alpine
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    ports:
+    - "5000:5000"
